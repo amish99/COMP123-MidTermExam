@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace COMP123_MidTermExam
 {
-    /** Amish tangri
-    * 301108446
-    * 17-07-2019
-    * this is a program for lottery number picker in this program there are classes,methods,properties and fields.
-    * i have revised the syllabus again and also watch the previous lecture to get some help.
-    **/
     /**
      * <summary>
      * This class is a subclass of the LottoGame abstract superclass
      * </summary>
      * 
-     * @class Lotto649
+     * @class Lottario
      */
-    public class Lotto649 : LottoGame, IGenerateLottoNumbers
+    public class Pick4 : LottoGame, IGenerateLottoNumbers
     {
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -31,24 +25,22 @@ namespace COMP123_MidTermExam
          * 
          * @constructor
          */
-        public Lotto649()
-            : base(6, 49)
+        public Pick4()
+            : base(0, 9)
         {
 
         }
-
         // CREATE the public GenerateLottoNumbers method here ----------------
         public void GenerateLottoNumbers()
         {
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 4; i++)
             {
                 this.PickElements();
-                Console.Write($"Ticket   {i}= ");
+                Console.Write($"Ticket   {i}=  0 3  4 5");
                 Console.WriteLine(ToString());
             }
 
         }
     }
 }
-   

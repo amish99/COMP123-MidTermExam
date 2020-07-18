@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace COMP123_MidTermExam
 {
+    /** Amish tangri
+   * 301108446
+   * 17-07-2019
+   * this is a program for lottery number picker in this program there are classes,methods,properties and fields.
+   * i have revised the syllabus again and also watch the previous lecture to get some help.
+   **/
     /**
      * <summary>
      * This is the driver class
@@ -19,7 +25,8 @@ namespace COMP123_MidTermExam
         static Lotto649 lotto649 = new Lotto649();
         // Instantiate lottoMax object
         static LottoMax lottoMax = new LottoMax();
-
+        // Instantiate lottario object
+        static Lottario lottario = new Lottario();
         /**
          * @static
          * @method Main
@@ -36,7 +43,7 @@ namespace COMP123_MidTermExam
          * This utility method creates a console menu that allows the user to choose
          * a Lotto game to execute.
          * </summary>
-         * 
+         * C:\Users\16474\Downloads\COMP123-MidTermExam\COMP123-MidTermExam\Program.cs
          * @static
          * @method LottoMenu
          * @returns {void}
@@ -54,7 +61,8 @@ namespace COMP123_MidTermExam
                 Console.WriteLine(" Please make your selection");
                 Console.WriteLine(" 1. Lotto 6/49");
                 Console.WriteLine(" 2. Lotto Max");
-                Console.WriteLine(" 3. Exit");
+                Console.WriteLine(" 3. lottario ");
+                Console.WriteLine(" 4. Exit");
                 Console.WriteLine("++++++++++++++++++++++++++++++++");
 
                 // read the user selection
@@ -78,7 +86,16 @@ namespace COMP123_MidTermExam
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case ConsoleKey.D3: // The "3" Key - Exit the menu
+                    case ConsoleKey.D3: // The "3" Key - Select Lottario
+                        Console.Clear();
+                        Console.WriteLine("+ Lottario ++++++++++++++++++++");
+                        lottario.GenerateLottoNumbers();
+                        Console.WriteLine("++++++++++++++++++++++++++++++++");
+                        Console.WriteLine("Please press any key to continue");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.D4: // The "4" Key - Exit the menu
                         menuActive = false;
                         break;
                     default:
