@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace COMP123_MidTermExam
 {
+    /** Amish tangri
+    * 301108446
+    * 17-07-2019
+    * 
+    * 
+    **/
     /**
      * <summary>
      * This class is a subclass of the LottoGame abstract superclass
@@ -32,5 +38,17 @@ namespace COMP123_MidTermExam
         }
 
         // CREATE the public GenerateLottoNumbers method here ----------------
+        public void GenerateLottoNumbers()
+        {
+
+            for (int i = 0; i < 6; i++)
+            {
+                this.PickElements();
+                Console.Write($"Ticket   {i}= ");
+                Console.WriteLine(ToString());
+            }
+
+        }
     }
 }
+   

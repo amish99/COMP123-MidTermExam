@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace COMP123_MidTermExam
 {
+    /** Amish tangri
+     * 301108446
+     * 17-07-2019
+     * 
+     * 
+     **/
     /**
      * <summary>
      * This abstract class is a blueprint for all Lotto Games
@@ -23,12 +29,65 @@ namespace COMP123_MidTermExam
         private List<int> _numberList;
         private Random _random;
         private int _setSize;
-        
+
         // CREATE private fields here --------------------------------------------
 
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        
+
         // CREATE public properties here -----------------------------------------
+
+        /*
+         * The ElementList property contain the random number generated from the NUmberList.
+         * The ElementNumber property stores the times of random number needed to generate.
+         */
+
+        public List<int> ElementList
+        {
+            get
+            {
+                return this._elementList;
+            }
+        }
+        public int ElementNumber
+        {
+            get
+            {
+                return this._elementNumber;
+            }
+
+            set
+            {
+                this._elementNumber = value;
+            }
+        }
+        public List<int> NumberList
+        {
+            get
+            {
+                return this._numberList;
+            }
+
+        }
+        public Random random
+        {
+            get
+            {
+                return this._random;
+            }
+        }
+
+        public int SetSize
+        {
+            get
+            {
+                return this._setSize;
+            }
+
+            set
+            {
+                this._setSize = value;
+            }
+        }
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -40,8 +99,8 @@ namespace COMP123_MidTermExam
          * </summary>
          * 
          * @constructor LottoGame
-         * @param {int} elementNumber
-         * @param {int} setSize
+         * @amish {int} elementNumber
+         * @amish {int} setSize
          */
         public LottoGame(int elementNumber = 6, int setSize = 49)
         {
@@ -61,8 +120,22 @@ namespace COMP123_MidTermExam
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE the private _initialize method here -----------------------------
+        private void _initialize()
+        {
+            this._elementList = new List<int>();
+            this._numberList = new List<int>();
+            this._random = new Random();
+        }
 
         // CREATE the private _build method here -----------------------------------
+        private void _build()
+        {
+            for (int i = 0; i < SetSize; i++)
+            {
+                NumberList.Add(i + 1);
+
+            }
+        }
 
         // OVERRIDEN METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -94,5 +167,32 @@ namespace COMP123_MidTermExam
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE the public PickElements method here ----------------------------
+        public void PickElements()
+        {
+            if (ElementList.Count > 0)
+            {
+
+
+                ElementList.Clear();
+                NumberList.Clear();
+                this._build();
+            }
+
+            for (int i = 0; i < ElementNumber; i++)
+            {
+
+                int Number = _random.Next(NumberList.Count);
+
+                ElementList.Add(NumberList[Number]);
+                NumberList.RemoveAt(Number);
+
+
+            }
+
+            ElementList.Sort();
+        }
     }
 }
+
+    
+
